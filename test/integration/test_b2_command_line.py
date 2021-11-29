@@ -1805,6 +1805,10 @@ def sse_c_test(b2_tool, bucket_name):
     )
 
 
+def license_test(b2_tool, bucket_name):
+    b2_tool.should_succeed(['license'])
+
+
 def file_lock_test(b2_tool, bucket_name):
     lock_disabled_bucket_name = b2_tool.generate_bucket_name()
     b2_tool.should_succeed([
