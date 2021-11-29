@@ -62,7 +62,7 @@ from b2sdk.v2 import (
     Synchronizer,
     SyncReport,
     current_time_millis,
-    get_included_sources,
+    # get_included_sources,
     make_progress_listener,
     parse_sync_folder,
 )
@@ -2268,21 +2268,21 @@ class License(Command):
         )
         self._print(str(summary_table))
 
-        included_sources = get_included_sources()
-        if included_sources:
-            self._print(
-                '\n\nThird party libraries modified and included in %s or %s' %
-                (NAME, b2sdk.__name__)
-            )
-        for src in included_sources:
-            self._print()
-            self._print(src.name)
-            self._print(src.comment)
-            self._print('Files included for legal compliance reasons:')
-            files_table = prettytable.PrettyTable(['File name', 'Content'], hrules=prettytable.ALL)
-            for file_name, file_content in src.files.items():
-                files_table.add_row([file_name, file_content])
-            self._print(str(files_table))
+        # included_sources = get_included_sources()
+        # if included_sources:
+        #     self._print(
+        #         '\n\nThird party libraries modified and included in %s or %s' %
+        #         (NAME, b2sdk.__name__)
+        #     )
+        # for src in included_sources:
+        #     self._print()
+        #     self._print(src.name)
+        #     self._print(src.comment)
+        #     self._print('Files included for legal compliance reasons:')
+        #     files_table = prettytable.PrettyTable(['File name', 'Content'], hrules=prettytable.ALL)
+        #     for file_name, file_content in src.files.items():
+        #         files_table.add_row([file_name, file_content])
+        #     self._print(str(files_table))
         self._print('\n\n%s license:' % (NAME,))
         with (pathlib.Path(__file__).parent / 'LICENSE').open() as b2_license_file:
             self._print(b2_license_file.read())
